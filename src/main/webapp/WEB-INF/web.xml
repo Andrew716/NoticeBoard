@@ -1,0 +1,17 @@
+<web-app>
+    <resource-ref>
+        <description>Connection Pool</description>
+        <res-ref-name>NoticeBoard</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>andrii</res-auth>
+    </resource-ref>
+    <servlet>
+        <servlet-name>SignUpInServlet</servlet-name>
+        <servlet-class>servlets.SignUpInServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SignUpInServlet</servlet-name>
+        <url-pattern>/ServletContainer/*</url-pattern>
+    </servlet-mapping>
+</web-app>
