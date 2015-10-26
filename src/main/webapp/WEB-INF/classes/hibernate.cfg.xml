@@ -2,7 +2,10 @@
         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 
+
+
 <hibernate-configuration>
+
     <session-factory>
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL9Dialect</property>
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
@@ -20,8 +23,8 @@
 
 
 
-        <mapping class="com.andrii716.noticeBoard.entities.Announcement"/>
-        <mapping class="com.andrii716.noticeBoard.entities.Person"/>
-        <mapping class="com.andrii716.noticeBoard.entities.Rubric"/>
+        <mapping class="com.andrii716.noticeBoard.Announcement"/>
+        <mapping class="com.andrii716.noticeBoard.Person"/>
+        <mapping class="com.andrii716.noticeBoard.Rubric"/>
     </session-factory>
 </hibernate-configuration>

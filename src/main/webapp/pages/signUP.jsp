@@ -17,7 +17,7 @@
         <input type="text" name="surname">Прізвище<Br>
         <input type="text" name="login">Логін<Br>
         <input type="text" name="password">Пароль<Br>
-        <input type="text" name="confirmPassword"Підтвердити пароль<Br>
+        <input type="text" name="confirmPassword">Підтвердити пароль<Br>
         <input type="submit" name="submit">
     </form>
 

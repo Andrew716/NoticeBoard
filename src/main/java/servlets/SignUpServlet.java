@@ -25,7 +25,8 @@ public class SignUpServlet extends HttpServlet {
         this.submit = request.getParameter("submit");
         LOGGER.info("fields was filled");
         if (person.getName() != null && person.getSurname() != null && person.getLogin() != null && person.getPassword() != null && submit != null){
-            this.connection = DAO.getConnection();
+            DAO dao = new DAO();
+            dao.persist(person);
         }
     }
 

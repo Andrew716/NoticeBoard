@@ -5,11 +5,11 @@
         <welcome-file>signUP.jsp</welcome-file>
     </welcome-file-list>
     <servlet>
-        <servlet-name>SignUpInServlet</servlet-name>
+        <servlet-name>SignUpServlet</servlet-name>
         <servlet-class>servlets.SignUpServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>SignUpInServlet</servlet-name>
+        <servlet-name>SignUpServlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
     <servlet>
@@ -30,4 +30,5 @@
         <res-type>javax.sql.DataSource</res-type>
         <res-auth>andrii</res-auth>
     </resource-ref>
+    <display-name>NoticeBoard</display-name>
 </web-app>

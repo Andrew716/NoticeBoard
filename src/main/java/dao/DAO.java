@@ -28,10 +28,11 @@ public class DAO {
     private Transaction currentTransaction;
 
     static {
+        LOGGER.info("Configuration is in process");
         Configuration configuration = new Configuration();
         configuration.configure("hibernate.cfg.xml");
-        StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder();
-        sessionFactory = configuration.buildSessionFactory(builder.build());
+        //StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder();
+        sessionFactory = configuration.buildSessionFactory();
     }
 
     static {
