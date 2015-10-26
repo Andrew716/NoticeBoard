@@ -28,10 +28,11 @@ public class Person {
     @OneToMany(mappedBy = "author")
     private List<Announcement> announcements;
 
-    public Person(String name, String surname, List<Announcement> announcements) {
+    public Person(String name, String surname, String login, String password) {
         this.name = name;
         this.surname = surname;
-        this.announcements = announcements;
+        this.login = login;
+        this.password = password;
     }
 
     public Person(String login, String password){

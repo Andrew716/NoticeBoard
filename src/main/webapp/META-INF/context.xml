@@ -1,11 +1,18 @@
-<Context>
-    <Resource name="NoticeBoard" auth="andrii"
-              type="javax.sql.DataSource"
-              maxActive="100"
-              maxIdle="30"
-              username="postgres"
-              password="234786"
-              driverClassName="org.postgresql.Driver"
-              url="jdbc:postgresql://localhost:5432/NoticeBoardDB"
-              maxWait="-1"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/">
+
+<WatchedResource>WEB-INF/web.xml</WatchedResource>
+
+
+
+<Resource name="NoticeBoard" auth="andrii"
+          type="javax.sql.DataSource"
+          driverClassName="org.postgresql.Driver"
+          url="jdbc:postgresql://127.0.0.1:5432/NoticeBoardDB"
+          username="postgres"
+          password="234786"
+          maxActive="20"
+          maxIdle="10"
+          maxWait="1"/>
+
 </Context>
