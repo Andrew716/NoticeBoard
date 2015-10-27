@@ -21,10 +21,5 @@
 
         <property name="show_sql">true</property>
 
-
-
-        <mapping class="com.andrii716.noticeBoard.Announcement"/>
-        <mapping class="com.andrii716.noticeBoard.Person"/>
-        <mapping class="com.andrii716.noticeBoard.Rubric"/>
     </session-factory>
 </hibernate-configuration>

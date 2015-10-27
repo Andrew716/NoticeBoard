@@ -22,7 +22,7 @@ public class Announcement {
     private int IdAnnouncement;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_author")
-    private Person IdAuthor;
+    private Person announcements;
     @Column(name = "date_of_publication")
     private Date dateOfPublication;
     @OneToOne(fetch = FetchType.LAZY)
@@ -47,12 +47,12 @@ public class Announcement {
         IdAnnouncement = idAnnouncement;
     }
 
-    public Person getIdAuthor() {
-        return IdAuthor;
+    public Person getAnnouncements() {
+        return announcements;
     }
 
-    public void setIdAuthor(Person idAuthor) {
-        IdAuthor = idAuthor;
+    public void setAnnouncements(Person announcements) {
+        this.announcements = announcements;
     }
 
     public Date getDateOfPublication() {

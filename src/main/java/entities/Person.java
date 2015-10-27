@@ -16,6 +16,7 @@ import java.util.List;
 public class Person {
     @Id
     @GeneratedValue
+    @Column(name = "id_person")
     private int Id;
     @Column(name = "name")
     private String name;
@@ -25,7 +26,7 @@ public class Person {
     private String login;
     @Column(name = "password")
     private String password;
-    @OneToMany(mappedBy = "author")
+    @OneToMany(mappedBy = "announcements")
     private List<Announcement> announcements;
 
     public Person(String name, String surname, String login, String password) {
