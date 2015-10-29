@@ -1,13 +1,14 @@
-package dao;
+package service;
 
-import entities.Person;
 import entities.Announcement;
+import entities.Person;
+
 import java.util.List;
 
 /**
  * Created by Andrii on 10/29/2015.
  */
-public interface PersonDAOInt {
+public interface PersonServiceInt {
     public void addPerson(Person person);
     public void deletePerson(Person person);
     public void updatePerson(Person person);
