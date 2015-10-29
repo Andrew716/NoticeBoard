@@ -21,17 +21,14 @@ import org.hibernate.cfg.Configuration;
  */
 public class DAO {
 
-    private static Logger LOGGER = Logger.getLogger("Info logging");
+    private final static Logger LOGGER = Logger.getLogger("Info logging");
     private static Connection connection;
-    private static SessionFactory sessionFactory;
-    private Session currentSession;
-    private Transaction currentTransaction;
+    protected static SessionFactory sessionFactory;
 
     static {
         LOGGER.info("Configuration is in process");
         Configuration configuration = new Configuration();
         configuration.configure("hibernate.cfg.xml");
-        //StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder();
         sessionFactory = configuration.buildSessionFactory();
     }
 
@@ -48,86 +45,5 @@ public class DAO {
             LOGGER.log(Level.SEVERE, "Connection failed", e);
         }
         LOGGER.info("DataSource has been created");
-    }
-
-    public Session openCurrentSession(){
-        this.currentSession = sessionFactory.openSession();
-        return currentSession;
-    }
-
-    public Transaction openCurrentSessionWithTransactional(){
-        this.currentSession = sessionFactory.openSession();
-        this.currentTransaction = currentSession.beginTransaction();
-        return currentTransaction;
-    }
-
-    public void closeCurrentSession(){
-        currentSession.close();
-    }
-
-    public void closeCurrentSessionWithTransactional(){
-        currentTransaction.commit();
-        currentSession.close();
-    }
-
-    public Session getCurrentSession() {
-        return currentSession;
-    }
-
-    public void setCurrentSession(Session currentSession) {
-        this.currentSession = currentSession;
-    }
-
-    public Transaction getCurrentTransaction() {
-        return currentTransaction;
-    }
-
-    public void setCurrentTransaction(Transaction currentTransaction) {
-        this.currentTransaction = currentTransaction;
-    }
-
-    public void persist(Person person){
-        getCurrentSession().persist(person);
-    }
-
-    public void persist(Announcement announcement){
-        getCurrentSession().persist(announcement);
-    }
-
-    public void update(Person person){
-        getCurrentSession().update(person);
-    }
-
-    public void update(Announcement announcement){
-        getCurrentSession().update(announcement);
-    }
-
-    public void delete(Person person){
-        getCurrentSession().delete(person);
-    }
-
-    public void delete(Announcement announcement){
-        getCurrentSession().delete(announcement);
-    }
-
-    public Person findByLogin(String login){
-        Person person = (Person) getCurrentSession().get(Person.class, login);
-        return person;
-    }
-
-    public Announcement findById(int id){
-        Announcement announcement = (Announcement) getCurrentSession().get(Announcement.class, id);
-        return announcement;
-    }
-
-    public List<Announcement> findAllAnnoucement(Person person){
-        return person.getAnnouncements();
-    }
-
-    public void deleteAllAnnouncement(Person person){
-        List<Announcement> announcements = findAllAnnoucement(person);
-        for (Announcement announcement : announcements){
-            delete(announcement);
-        }
     }
 }

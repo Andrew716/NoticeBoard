@@ -21,16 +21,16 @@ public class Announcement {
     @Column(name = "id_announcement")
     private int IdAnnouncement;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_author")
+    @JoinColumn(name = "id_author", nullable = false)
     private Person announcements;
-    @Column(name = "date_of_publication")
+    @Column(name = "date_of_publication", nullable = false)
     private Date dateOfPublication;
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_rubric")
+    @JoinColumn(name = "id_rubric", nullable = false)
     private Rubric rubric;
-    @Column(name = "title")
+    @Column(name = "title", nullable = false)
     private String title;
-    @Column(name = "text")
+    @Column(name = "text", nullable = false)
     private String text;
 
     public Announcement(String text, String title, Date dateOfPublication) {

@@ -18,7 +18,7 @@ public class Rubric {
     @GeneratedValue
     @Column(name = "id_rubric")
     private int Id;
-    @Column(name = "type_of_rubric")
+    @Column(name = "type_of_rubric", nullable = false)
     private String typeOfRubric;
 
     public Rubric(String typeOfRubric) {

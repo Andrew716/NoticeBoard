@@ -18,13 +18,13 @@ public class Person {
     @GeneratedValue
     @Column(name = "id_person")
     private int Id;
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
-    @Column(name = "surname")
+    @Column(name = "surname", nullable = false)
     private String surname;
-    @Column(name = "login")
+    @Column(name = "login", nullable = false)
     private String login;
-    @Column(name = "password")
+    @Column(name = "password", nullable = false)
     private String password;
     @OneToMany(mappedBy = "announcements")
     private List<Announcement> announcements;
