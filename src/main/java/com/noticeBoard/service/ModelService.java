@@ -4,7 +4,7 @@ import com.noticeBoard.dao.DAO;
 import com.noticeBoard.entities.Announcement;
 import com.noticeBoard.entities.Person;
 import com.noticeBoard.entities.Rubric;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -12,10 +12,14 @@ import java.util.List;
 /**
  * Created by Andrii on 11/2/2015.
  */
+@Service
 public class ModelService {
 
-    @Autowired
     private DAO dao;
+
+    public void setDao(DAO dao){
+        this.dao = dao;
+    }
 
     @Transactional
     public void addAnnouncement(Announcement announcement) {

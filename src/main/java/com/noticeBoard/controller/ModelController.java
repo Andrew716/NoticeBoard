@@ -2,6 +2,7 @@ package com.noticeBoard.controller;
 
 import com.noticeBoard.entities.Person;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,28 +20,33 @@ import java.util.logging.Logger;
 public class ModelController {
 
     private static final Logger LOGGER = Logger.getLogger("Logging info");
-    @Autowired
-    private ModelService modelService;
+    private ModelService service;
+
+    @Autowired(required = true)
+    @Qualifier(value = "modelService")
+    public void setService(ModelService service){
+        this.service = service;
+    }
 
     @RequestMapping(value = "/person/add", method = RequestMethod.POST)
     public String addPerson(@ModelAttribute ("person") Person person ){
         if (person.getId() == 0){
-            this.modelService.addPerson(person);
+            this.service.addPerson(person);
         }else {
-            this.modelService.updatePerson(person);
+            this.service.updatePerson(person);
         }
         return "redirected:/person";
     }
 
     @RequestMapping("/edit/{id}")
     public String updatePerson(@PathVariable("id") int id, Model model){
-        model.addAttribute("person", this.modelService.getPersonById(id));
+        model.addAttribute("person", this.service.getPersonById(id));
         return "person";
     }
 
     @RequestMapping("/remove/{id}")
     public String removePerson(@PathVariable("id") int id){
-        this.modelService.deletePerson(id);
+        this.service.deletePerson(id);
         return "redirected:/person";
     }
 }

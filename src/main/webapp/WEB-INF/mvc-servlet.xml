@@ -13,7 +13,7 @@
     <context:component-scan base-package="com.noticeBoard.*" />
     <tx:annotation-driven/>
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="webapp/pages" />
+        <property name="prefix" value="pages/" />
         <property name="suffix" value=".jsp" />
     </bean>
 </beans>

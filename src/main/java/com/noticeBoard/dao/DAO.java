@@ -13,12 +13,15 @@ import javax.annotation.Resource;
 /**
  * Created by Andrii on 10/23/2015.
  */
-@Repository("com.noticeBoard.dao")
+@Repository
 public class DAO {
 
     private final static Logger LOGGER = Logger.getLogger("Info logging");
-    @Resource
-    protected static SessionFactory sessionFactory;
+    private SessionFactory sessionFactory;
+
+    public void setSessionFactory(SessionFactory sessionFactory){
+        this.sessionFactory = sessionFactory;
+    }
 
     public void addAnnouncement(Announcement announcement) {
         Session session = this.sessionFactory.getCurrentSession();
